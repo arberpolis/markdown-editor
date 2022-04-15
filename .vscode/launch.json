@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome against Localhost",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "reAttach": true,
+            "reloadOnChange": true,
+            "webRoot": "${workspaceFolder}/dist/public"
+        },
+        {
+            "name": "Launch Firefox against Localhost",
+            "type": "firefox",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "reAttach": true,
+            "reloOnChange": true,
+            "webroot": "${workspaceFolder}/dist/public",
+            "pathMappings": [
+                {
+                    "url": "http://localhost:8080/src",
+                    "path": "${workspaceFolder}/src"
+                }
+            ]
+        }
+    ]
+}

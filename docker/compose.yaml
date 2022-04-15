@@ -1,0 +1,21 @@
+# docker-compose.yaml
+version: "3"
+
+networks:
+  default:
+    external:
+      name: default
+  markdown-editor-network:
+    external:
+      name: markdown-editor-network
+
+services:
+  markdown-editor-service:
+    image: markdown-editor-image:latest
+    ports:
+      - 8080:80
+    volumes:
+      - ../dist/public:/usr/local/apache2/htdocs:rw
+    restart: always
+    networks:
+      - markdown-editor-network

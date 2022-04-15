@@ -1,0 +1,54 @@
+{
+  "name": "markdown-editor",
+  "version": "1.0.0",
+  "description": "A great markdown editor built in ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && npm run test && npm run build:js && npm run build:css && npm run build:public",
+    "build:css": "tailwindcss -i ./public/index.css -o ./public/bundle.css",
+    "build:js": "node ./dist/build/build.js",
+    "build:on-update": "./buildonupdate.sh",
+    "build:public": "cp -r public dist",
+    "images:create": "sudo docker build -t markdown-editor-image -f ./docker/Dockerfile .",
+    "images:down": "sudo docker-compose -f ./docker/compose.yaml down",
+    "images:logs": "sudo docker-compose -f ./docker/compose.yaml logs",
+    "images:ps": "sudo docker-compose -f ./docker/compose.yaml ps",
+    "images:up": "sudo docker-compose -f ./docker/compose.yaml up -d",
+    "start": "npm run build && node ./dist/build/esbuild.js start",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arberpolis/markdown-editor.git"
+  },
+  "keywords": [
+    "markdown",
+    "editor"
+  ],
+  "author": "Arber Qytyku",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arberpolis/markdown-editor/issues"
+  },
+  "homepage": "https://github.com/arberpolis/markdown-editor#readme",
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "@tailwindcss/typography": "^0.5.2",
+    "esbuild": "^0.14.36"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-tailwindcss": "^3.5.0",
+    "jest": "^27.5.1",
+    "tailwindcss": "^3.0.23",
+    "typescript": "^4.6.3"
+  }
+}
